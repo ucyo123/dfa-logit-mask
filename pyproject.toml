@@ -1,0 +1,41 @@
+[build-system]
+requires = ["maturin>=1.7,<2.0"]
+build-backend = "maturin"
+
+[project]
+name = "dfa-logit-mask"
+version = "0.1.0"
+description = "Deterministic grammar-constrained logit mask engine for local LLM structured decoding"
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [
+    { name = "ucyo123" }
+]
+keywords = [
+    "llm",
+    "structured-generation",
+    "logits-processor",
+    "dfa",
+    "grammar-masking",
+    "vllm",
+    "json-schema"
+]
+dependencies = [
+    "pydantic>=2.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+]
+
+[tool.maturin]
+python-source = "python"
+module-name = "dfa_logit_mask._core"
+features = ["pyo3/extension-module"]
+
+[tool.pytest.ini_options]
+minversion = "7.0"
+addopts = "-ra -q"
+testpaths = ["tests"]
+pythonpath = ["python"]

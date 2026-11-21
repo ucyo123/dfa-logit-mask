@@ -1,0 +1,14 @@
+[package]
+name = "dfa-logit-mask"
+version = "0.1.0"
+edition = "2021"
+description = "Deterministic grammar-constrained logit mask engine for local LLM structured decoding"
+authors = ["ucyo123"]
+license = "Apache-2.0"
+
+[lib]
+name = "_core"
+crate-type = ["cdylib"]
+
+[dependencies]
+pyo3 = { version = "0.22", features = ["extension-module"] }
